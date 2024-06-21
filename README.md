@@ -1,4 +1,4 @@
-> [WANRING]
+> [IMPORTANT]
 > This is not the official repo of the theme
 > it's just a fork, the main repo is available at
 > [author's gitlab account](https://gitlab.com/gabmus/hugo-ficurinia)
