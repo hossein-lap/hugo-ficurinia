@@ -71,9 +71,9 @@ summaryLength = 70  # number of words for article summaries
     fitImageInArticlePreview = false  # make article preview images fit the article preview instead of getting cropped
     articleSummary = true  # show a summary in article preview; default true
     
-    fontFamily = "JetBrains Mono"  # changes the font, default "JetBrains Mono"
-    titleFontFamily = "JetBrains Mono"  # font used for titles and headings
-    monospaceFontFamily = "JetBrains Mono"  # changes the monospace font for code, default "JetBrains Mono"
+    fontFamily = "CMU Sans Serif"  # default font
+    titleFontFamily = "CMU Serif"  # font used for titles and headings
+    monospaceFontFamily = "CMU Typewritter Text"  # monospace font for code
 
     # multipliers applied to font sizes, useful for custom fonts that may be too big or too small
     titleFontSizeMultiplier = 1.0
