@@ -304,7 +304,7 @@ table {
 blockquote {
     margin: 0;
     padding-left: ($margin * 2);
-    border-left: 2px solid currentcolor;
+    border-left: 6px solid var(--default_accent_nd);
 }
 
 .date, .date a {
