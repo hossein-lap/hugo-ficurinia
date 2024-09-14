@@ -1,4 +1,20 @@
 <div class="articleToc">
-    {{ .TableOfContents }}
-    <hr />
+  {{ if .Params.toc }}
+  {{ if .TableOfContents  }}
+  <hr/>
+  <aside>
+  <div class="tableofcontents">
+    <ol>
+      <details>
+        <summary>
+            <b>Table Of Contents</b>
+        </summary>
+          {{ .TableOfContents }}
+      </details>
+    </ol>
+  </div>
+  </aside>
+  {{ end }}
+  {{ end }}
+  <hr/>
 </div>

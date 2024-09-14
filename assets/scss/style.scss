@@ -262,7 +262,7 @@ p {
     }
 }
 
-.listingblock, .exampleblock {
+.listingblock, .exampleblock, .sidebarblock {
     .title {
         font-family: $symbols_font, $extra_mono_font, serif;
         color: var(--default_accent_nd);
