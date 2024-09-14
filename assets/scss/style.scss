@@ -7,6 +7,7 @@ $dark_fg:          {{ $colors.dark.fg         | default "white"   }};
 $dark_dim_fg:      {{ $colors.dark.dim_fg     | default "#bababa" }};
 $dark_stroke:      {{ $colors.dark.stroke     | default "#4f4f4f" }};
 $dark_accent:      {{ $colors.dark.accent     | default "#db5793" }};
+$dark_accent_nd:   {{ $colors.dark.accent_nd  | default "#db5793" }};
 $dark_sidebar_bg:  {{ $colors.dark.sidebar.bg | default "#34363b" }};
 $dark_sidebar_fg:  {{ $colors.dark.sidebar.fg | default "white"   }};
 
@@ -17,6 +18,7 @@ $light_fg:         {{ $colors.light.fg         | default "#262625" }};
 $light_dim_fg:     {{ $colors.light.dim_fg     | default "#40403e" }};
 $light_stroke:     {{ $colors.light.stroke     | default "#575754" }};
 $light_accent:     {{ $colors.light.accent     | default "#db5793" }};
+$light_accent_nd:  {{ $colors.light.accent_nd  | default "#db5793" }};
 $light_sidebar_bg: {{ $colors.light.sidebar.bg | default "#e6e6e6" }};
 $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
 
@@ -28,6 +30,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
     --dark_dim_fg:      #{$dark_dim_fg};
     --dark_stroke:      #{$dark_stroke};
     --dark_accent:      #{$dark_accent};
+    --dark_accent_nd:   #{$dark_accent_nd};
     --dark_sidebar_bg:  #{$dark_sidebar_bg};
     --dark_sidebar_fg:  #{$dark_sidebar_fg};
 
@@ -37,7 +40,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
     --light_fg:         #{$light_fg};
     --light_dim_fg:     #{$light_dim_fg};
     --light_stroke:     #{$light_stroke};
-    --light_accent:     #{$light_accent};
+    --light_accent_nd:  #{$light_accent_nd};
     --light_sidebar_bg: #{$light_sidebar_bg};
     --light_sidebar_fg: #{$light_sidebar_fg};
 
@@ -49,6 +52,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_dim_fg:     #{$light_dim_fg};
         --default_stroke:     #{$light_stroke};
         --default_accent:     #{$light_accent};
+        --default_accent_nd:  #{$light_accent_nd};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
     {{ else }}
@@ -59,6 +63,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_dim_fg:     #{$dark_dim_fg};
         --default_stroke:     #{$dark_stroke};
         --default_accent:     #{$dark_accent};
+        --default_accent_nd:  #{$dark_accent_nd};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
     {{ end }}
@@ -73,7 +78,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_fg:         #{$dark_fg};
         --default_dim_fg:     #{$dark_dim_fg};
         --default_stroke:     #{$dark_stroke};
-        --default_accent:     #{$dark_accent};
+        --default_accent_nd:  #{$dark_accent_nd};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
     }
@@ -87,6 +92,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_dim_fg:     #{$light_dim_fg};
         --default_stroke:     #{$light_stroke};
         --default_accent:     #{$light_accent};
+        --default_accent_nd:  #{$light_accent_nd};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
     }
@@ -94,9 +100,10 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
 {{ end }}
 
 
-$main_font: {{ .Site.Params.fontFamily | default "CMU Sans Serif" }};
-$title_font: {{ .Site.Params.titleFontFamily | default "CMU Serif" }};
-$mono_font: {{ .Site.Params.monospaceFontFamily | default "CMU Typewriter Text" }};
+$main_font: {{ .Site.Params.fontFamily | default "Computer Modern Sans" }};
+$title_font: {{ .Site.Params.titleFontFamily | default "Computer Modern Serif" }};
+$mono_font: {{ .Site.Params.monospaceFontFamily | default "Computer Modern Typewriter" }};
+$extra_mono_font: {{ .Site.Params.monospaceExtraFontFamily | default "Computer Modern Concrete" }};
 $symbols_font: "Symbols Nerd Font";
 $content_width: {{ .Site.Params.contentWidth | default "1000px" }};
 $border_radius: 10px;
@@ -175,6 +182,7 @@ body {
 
 a {
     @include linkLike;
+    font-family: $symbols_font, $extra_mono_font, serif;
 }
 
 a.unstyledLink {
@@ -244,11 +252,20 @@ article, .articlePreview {
 
 p {
     code {
+        font-family: $symbols_font, $mono_font, monospace;
+        font-size: $base_font_size * .75 * $mono_font_mult;
         /* border: 1px solid var(--default_stroke); */
         border-radius: 7px;
         padding: 5px;
         background-color: var(--default_cb);
         border-color: var(--default_cb);
+    }
+}
+
+.listingblock, .exampleblock {
+    .title {
+        font-family: $symbols_font, $extra_mono_font, serif;
+        color: var(--default_accent_nd);
     }
 }
 
@@ -503,7 +520,7 @@ ul.list {
         td, td>*, td>*>* {
             color: var(--default_fg);
             pre {
-                font-family: $symbols_font, $mono_font, monospace;
+                font-family: $symbols_font, $extra_mono_font, monospace;
                 color: var(--default_dim_fg);
             }
         }
@@ -691,6 +708,7 @@ header {
                             transition: background-color .15s ease-in-out;
                             &:hover, &:active {
                                 background-color: var(--default_accent);
+                                color: var(--default_bg);
                             }
                         {{ end }}
                         box-sizing: border-box;
