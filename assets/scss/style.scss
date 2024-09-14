@@ -182,7 +182,7 @@ body {
 
 a {
     @include linkLike;
-    font-family: $symbols_font, $extra_mono_font, serif;
+    /* font-family: $symbols_font, $extra_mono_font, serif; */
 }
 
 a.unstyledLink {
