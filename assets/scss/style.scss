@@ -304,7 +304,16 @@ table {
 blockquote {
     margin: 0;
     padding-left: ($margin * 2);
-    border-left: 6px solid var(--default_accent_nd);
+    border-left: 6px solid var(--default_dim_fg);
+}
+
+.quoteblock {
+    .title {
+        padding-top: ($margin * 1.5);
+        font-size: $base_font_size * 1 * $mono_font_mult;
+        /* color: var(--default_accent_nd); */
+        /* font-weight: bold; */
+    }
 }
 
 .date, .date a {
