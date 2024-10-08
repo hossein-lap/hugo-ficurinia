@@ -263,11 +263,16 @@ p {
 
 .listingblock, .exampleblock, .sidebarblock {
     .title {
-        /* font-family: $symbols_font, $extra_mono_font, serif; */
+        font-family: $symbols_font, $title_font, serif;
         /* color: var(--default_dim_fg); */
         font-weight: bold;
         /* color: var(--default_accent_nd); */
     }
+}
+
+*::selection {
+    background: var(--default_accent_nd);
+    color: var(--default_bg);
 }
 
 code {
@@ -1331,4 +1336,8 @@ a {
 
 input {
     transition: .15s border ease-in-out;
+}
+
+* {
+    line-height: 150%;
 }
