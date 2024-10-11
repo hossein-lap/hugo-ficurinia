@@ -35,7 +35,7 @@ defaultContentLanguage = "en"
 # you can use markdown inside this field
 copyright = "Some copyright notice - [my license](https://example.com/license)"
 
-paginate = 5  # number of articles per page in the index
+pagination.pagerSize = 5  # number of articles per page in the index
 summaryLength = 70  # number of words for article summaries
 
 
