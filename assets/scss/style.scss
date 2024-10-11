@@ -261,7 +261,7 @@ p {
     }
 }
 
-.listingblock, .exampleblock, .sidebarblock {
+.listingblock, .exampleblock, .sidebarblock, .paragraph {
     .title {
         font-family: $symbols_font, $title_font, serif;
         /* color: var(--default_dim_fg); */
@@ -771,6 +771,12 @@ header {
             }
         }
     }
+}
+
+.tableofcontents {
+  border: 1px solid var(--default_stroke);
+  border-radius: 5px;
+  margin: #{$margin * 2} 0;
 }
 
 .articleTagsContainer {
