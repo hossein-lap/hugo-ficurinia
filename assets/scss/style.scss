@@ -10,6 +10,11 @@ $dark_accent:      {{ $colors.dark.accent     | default "#db5793" }};
 $dark_accent_nd:   {{ $colors.dark.accent_nd  | default "#db5793" }};
 $dark_sidebar_bg:  {{ $colors.dark.sidebar.bg | default "#34363b" }};
 $dark_sidebar_fg:  {{ $colors.dark.sidebar.fg | default "white"   }};
+$dark_admonition_note:      {{ $colors.dark.admonition.note      | default "#19407c" }};
+$dark_admonition_tip:       {{ $colors.dark.admonition.tip       | default "#dddddd" }};
+$dark_admonition_warning:   {{ $colors.dark.admonition.warning   | default "#bf6900" }};
+$dark_admonition_caution:   {{ $colors.dark.admonition.caution   | default "#bf3400" }};
+$dark_admonition_important: {{ $colors.dark.admonition.important | default "#bf0000" }};
 
 $light_cb:         {{ $colors.dark.cb          | default "#ffffff" }};
 $light_bg:         {{ $colors.light.bg         | default "#f5f5f5" }};
@@ -21,6 +26,11 @@ $light_accent:     {{ $colors.light.accent     | default "#db5793" }};
 $light_accent_nd:  {{ $colors.light.accent_nd  | default "#db5793" }};
 $light_sidebar_bg: {{ $colors.light.sidebar.bg | default "#e6e6e6" }};
 $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
+$light_admonition_note:      {{ $colors.light.admonition.note      | default "#19407c" }};
+$light_admonition_tip:       {{ $colors.light.admonition.tip       | default "#111111" }};
+$light_admonition_warning:   {{ $colors.light.admonition.warning   | default "#bf6900" }};
+$light_admonition_caution:   {{ $colors.light.admonition.caution   | default "#bf3400" }};
+$light_admonition_important: {{ $colors.light.admonition.important | default "#bf0000" }};
 
 :root {
     --dark_bg:          #{$dark_bg};
@@ -33,6 +43,11 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
     --dark_accent_nd:   #{$dark_accent_nd};
     --dark_sidebar_bg:  #{$dark_sidebar_bg};
     --dark_sidebar_fg:  #{$dark_sidebar_fg};
+    --dark_admonition_tip: #{$dark_admonition_tip};
+    --dark_admonition_note: #{$dark_admonition_note};
+    --dark_admonition_warning: #{$dark_admonition_warning};
+    --dark_admonition_caution: #{$dark_admonition_caution};
+    --dark_admonition_important: #{$dark_admonition_important};
 
     --light_bg:         #{$light_bg};
     --light_cb:         #{$light_cb};
@@ -43,6 +58,11 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
     --light_accent_nd:  #{$light_accent_nd};
     --light_sidebar_bg: #{$light_sidebar_bg};
     --light_sidebar_fg: #{$light_sidebar_fg};
+    --light_admonition_tip: #{$light_admonition_tip};
+    --light_admonition_note: #{$light_admonition_note};
+    --light_admonition_warning: #{$light_admonition_warning};
+    --light_admonition_caution: #{$light_admonition_caution};
+    --light_admonition_important: #{$light_admonition_important};
 
     {{ if eq .Site.Data.colors.default "light" }}
         --default_bg:         #{$light_bg};
@@ -55,6 +75,11 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_accent_nd:  #{$light_accent_nd};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
+        --default_admonition_tip: #{$light_admonition_tip};
+        --default_admonition_note: #{$light_admonition_note};
+        --default_admonition_warning: #{$light_admonition_warning};
+        --default_admonition_caution: #{$light_admonition_caution};
+        --default_admonition_important: #{$light_admonition_important};
     {{ else }}
         --default_bg:         #{$dark_bg};
         --default_cb:         #{$dark_cb};
@@ -66,6 +91,11 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_accent_nd:  #{$dark_accent_nd};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
+        --default_admonition_tip: #{$dark_admonition_tip};
+        --default_admonition_note: #{$dark_admonition_note};
+        --default_admonition_warning: #{$dark_admonition_warning};
+        --default_admonition_caution: #{$dark_admonition_caution};
+        --default_admonition_important: #{$dark_admonition_important};
     {{ end }}
 }
 
@@ -81,6 +111,11 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_accent_nd:  #{$dark_accent_nd};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
+        --default_admonition_tip: #{$dark_admonition_tip};
+        --default_admonition_note: #{$dark_admonition_note};
+        --default_admonition_warning: #{$dark_admonition_warning};
+        --default_admonition_caution: #{$dark_admonition_caution};
+        --default_admonition_important: #{$dark_admonition_important};
     }
 }
 @media (prefers-color-scheme: light) {
@@ -95,6 +130,11 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_accent_nd:  #{$light_accent_nd};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
+        --default_admonition_tip: #{$light_admonition_tip};
+        --default_admonition_note: #{$light_admonition_note};
+        --default_admonition_warning: #{$light_admonition_warning};
+        --default_admonition_caution: #{$light_admonition_caution};
+        --default_admonition_important: #{$light_admonition_important};
     }
 }
 {{ end }}
@@ -1345,5 +1385,68 @@ input {
 }
 
 * {
-    line-height: 150%;
+    line-height: 165%;
 }
+
+.admonitionblock {
+    table {
+        background-color: var(--default_bg);
+        tbody {
+            tr {
+                td {
+                    border: 00px solid;
+                    /* padding: 10px 15px; */
+                }
+            }
+        }
+    }
+}
+
+.admonitionblock td.icon {
+
+    [class^="fa icon-"] { 
+        border-right: 1.5px dotted var(--default_bg);
+        padding-right: 10px;
+        padding-left:  10px;
+        font-size:150%;
+        text-shadow:1px 1px 2px rgba(0,0,0,.5);
+        cursor: default;
+    }
+
+    .icon-note:before {
+        content:"\f05a";
+        color: var(--default_admonition_note);
+        font-weight: normal;
+        font-style: normal;
+    }
+    .icon-caution:before {
+        content:"\f06d";
+        color: var(--default_admonition_caution);
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .icon-important:before {
+        content:"\f06a";
+        color: var(--default_admonition_important);
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .icon-tip:before {
+        content:"\f0eb";
+        color: var(--default_admonition_tip);
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .icon-warning:before {
+        content:"\f071";
+        color: var(--default_admonition_warning);
+        font-weight: normal;
+        font-style: normal;
+    }
+
+}
+
+

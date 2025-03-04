@@ -9,6 +9,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
 
+    <!-- <script type="text/javascript" src="/font/fix-adoc.js"></script> -->
+
     {{ if .OutputFormats.Get "RSS" }}
         {{ with .OutputFormats.Get "RSS" }}
           <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
@@ -35,7 +37,7 @@
     {{ if and site.Params.cactusCommentsSiteName (.Params.comments | default true) }}
         <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
     {{ end }}
-    {{ $style := resources.Get "/scss/style.scss" | resources.ExecuteAsTemplate "/scss/style.scss" . | css.Sass (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" "true") | resources.Fingerprint "sha512" }}
+    {{ $style := resources.Get "/scss/style.scss" | resources.ExecuteAsTemplate "/scss/style.scss" . | resources.ToCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" "true") | resources.Fingerprint "sha512" }}
     <link type="text/css" rel="stylesheet" href={{ $style.Permalink }} integrity="{{ $style.Data.Integrity }}" />
     {{- partial "inject/head.html" . -}}
     {{- partial "head_meta_seo.html" . -}}
