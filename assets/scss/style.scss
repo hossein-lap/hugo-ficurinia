@@ -16,7 +16,7 @@ $dark_admonition_warning:   {{ $colors.dark.admonition.warning   | default "#bf6
 $dark_admonition_caution:   {{ $colors.dark.admonition.caution   | default "#bf3400" }};
 $dark_admonition_important: {{ $colors.dark.admonition.important | default "#bf0000" }};
 
-$light_cb:         {{ $colors.dark.cb          | default "#ffffff" }};
+$light_cb:         {{ $colors.light.cb         | default "#ffffff" }};
 $light_bg:         {{ $colors.light.bg         | default "#f5f5f5" }};
 $light_hl_bg:      {{ $colors.light.hl_bg      | default "#e6e6e6" }};
 $light_fg:         {{ $colors.light.fg         | default "#262625" }};
@@ -297,7 +297,9 @@ p {
         /* border: 1px solid var(--default_stroke); */
         border-radius: 7px;
         padding: 5px;
+        color: var(--default_fg);
         background-color: var(--default_cb);
+        /* background-color: #ff7700; */
     }
 }
 
@@ -327,6 +329,7 @@ code, table {
 
 .rouge {
     border: 1px solid var(--default_dim_fg);
+    background-color: 1px solid var(--default_cb);
 }
 
 .literalblock {
@@ -364,6 +367,7 @@ table {
     th {
         font-weight: bold;
     }
+    overflow: auto;
 }
 
 blockquote {
@@ -814,10 +818,92 @@ header {
 }
 
 .tableofcontents {
-  border: 1px solid var(--default_stroke);
+  /* border: 1px solid var(--default_stroke); */
   border-radius: 5px;
-  margin: #{$margin * 2} 0;
+  /* margin: #{$margin * 2} 0; */
+  padding: 20px;
+  /* width: 100%; */
+
+  table {
+    width: 100%;
+    height: 200px;
+    td, tr {
+      width: 100%;
+      /* height: 250px; */
+      overflow: auto;
+      border: 00px solid;
+      background-color: var(--default_cb);
+    }
+    th {
+      width: 100%;
+      /* height: 200px; */
+      background-color: #04AA6D;
+      background-color: var(--default_accent);
+      color: var(--default_bg);
+    }
+  }
+
 }
+
+/* example 6
+<div class="hdlist">
+<table>
+<tbody><tr>
+<td class="hdlist1">
+first term
+</td>
+<td class="hdlist2">
+<p>definition of first term</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+section term
+</td>
+<td class="hdlist2">
+<p>definition of second term</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+*/
+
+/* .dlist { */
+/*   dl { */
+/*     dt { */
+/*       font-weight: bold; */
+/*     } */
+/*   } */
+/* } */
+/*     tbody { */
+/*       tr { */
+/*         td { */
+
+
+/*         } */
+/*       } */
+/*     } */
+/*   } */
+/* } */
+
+/* .dlist { */
+/*   dl { */
+/**/
+/*     dt { */
+/*       .hdlist1 { */
+/*       } */
+/*     } */
+/**/
+/*     dd { */
+/*       p { */
+/*         .hdlist1 { */
+/*         } */
+/*       } */
+/*     } */
+/**/
+/*   } */
+/* } */
+
 
 .articleTagsContainer {
     margin: $margin 0;
@@ -1449,4 +1535,26 @@ input {
 
 }
 
+.hdlist {
+  table {
+    tbody {
+      tr {
+        td {
+          border: 00px solid;
+          /* width: 200px; */
+          /* padding: 10px 15px; */
+        }
+      }
+    }
+  }
+}
+
+.hdlist1 {
+  font-weight: bold;
+}
+
+.hdlist2 {
+  width: 80%;
+  padding-left: 3%;
+}
 
