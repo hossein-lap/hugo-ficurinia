@@ -1488,10 +1488,36 @@ input {
     }
 }
 
+.hdlist {
+  table {
+  width: 100%;
+    tbody {
+      tr {
+        td {
+          border: 0px solid;
+          /* width: 200px; */
+          /* padding: 10px 15px; */
+        }
+      }
+    }
+  }
+}
+
+.hdlist1 {
+  width: 20%;
+  font-weight: bold;
+}
+
+.hdlist2 {
+  width: 80%;
+  padding-left: 3%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 .admonitionblock td.icon {
 
     [class^="fa icon-"] { 
-        border-right: 1.5px dotted var(--default_bg);
         padding-right: 10px;
         padding-left:  10px;
         font-size:150%;
@@ -1500,6 +1526,7 @@ input {
     }
 
     .icon-note:before {
+        border-right: 10.5px dotted var(--default_bg);
         content:"\f05a";
         color: var(--default_admonition_note);
         font-weight: normal;
@@ -1533,28 +1560,5 @@ input {
         font-style: normal;
     }
 
-}
-
-.hdlist {
-  table {
-    tbody {
-      tr {
-        td {
-          border: 00px solid;
-          /* width: 200px; */
-          /* padding: 10px 15px; */
-        }
-      }
-    }
-  }
-}
-
-.hdlist1 {
-  font-weight: bold;
-}
-
-.hdlist2 {
-  width: 80%;
-  padding-left: 3%;
 }
 
