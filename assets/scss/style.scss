@@ -6,8 +6,10 @@ $dark_hl_bg:       {{ $colors.dark.hl_bg      | default "#34363b" }};
 $dark_fg:          {{ $colors.dark.fg         | default "white"   }};
 $dark_dim_fg:      {{ $colors.dark.dim_fg     | default "#bababa" }};
 $dark_stroke:      {{ $colors.dark.stroke     | default "#4f4f4f" }};
+$dark_stroke_nd:   {{ $colors.dark.stroke_nd  | default "#4f4f4f" }};
 $dark_accent:      {{ $colors.dark.accent     | default "#db5793" }};
 $dark_accent_nd:   {{ $colors.dark.accent_nd  | default "#db5793" }};
+$dark_accent_rd:   {{ $colors.dark.accent_rd  | default "#db5793" }};
 $dark_sidebar_bg:  {{ $colors.dark.sidebar.bg | default "#34363b" }};
 $dark_sidebar_fg:  {{ $colors.dark.sidebar.fg | default "white"   }};
 $dark_admonition_note:      {{ $colors.dark.admonition.note      | default "#19407c" }};
@@ -22,8 +24,10 @@ $light_hl_bg:      {{ $colors.light.hl_bg      | default "#e6e6e6" }};
 $light_fg:         {{ $colors.light.fg         | default "#262625" }};
 $light_dim_fg:     {{ $colors.light.dim_fg     | default "#40403e" }};
 $light_stroke:     {{ $colors.light.stroke     | default "#575754" }};
+$light_stroke_nd:  {{ $colors.light.stroke_nd  | default "#575754" }};
 $light_accent:     {{ $colors.light.accent     | default "#db5793" }};
 $light_accent_nd:  {{ $colors.light.accent_nd  | default "#db5793" }};
+$light_accent_rd:  {{ $colors.light.accent_rd  | default "#db5793" }};
 $light_sidebar_bg: {{ $colors.light.sidebar.bg | default "#e6e6e6" }};
 $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
 $light_admonition_note:      {{ $colors.light.admonition.note      | default "#19407c" }};
@@ -39,8 +43,10 @@ $light_admonition_important: {{ $colors.light.admonition.important | default "#b
     --dark_fg:          #{$dark_fg};
     --dark_dim_fg:      #{$dark_dim_fg};
     --dark_stroke:      #{$dark_stroke};
+    --dark_stroke_nd:   #{$dark_stroke_nd};
     --dark_accent:      #{$dark_accent};
     --dark_accent_nd:   #{$dark_accent_nd};
+    --dark_accent_rd:   #{$dark_accent_rd};
     --dark_sidebar_bg:  #{$dark_sidebar_bg};
     --dark_sidebar_fg:  #{$dark_sidebar_fg};
     --dark_admonition_tip: #{$dark_admonition_tip};
@@ -55,7 +61,9 @@ $light_admonition_important: {{ $colors.light.admonition.important | default "#b
     --light_fg:         #{$light_fg};
     --light_dim_fg:     #{$light_dim_fg};
     --light_stroke:     #{$light_stroke};
+    --light_stroke_nd:  #{$light_stroke_nd};
     --light_accent_nd:  #{$light_accent_nd};
+    --light_accent_rd:  #{$light_accent_rd};
     --light_sidebar_bg: #{$light_sidebar_bg};
     --light_sidebar_fg: #{$light_sidebar_fg};
     --light_admonition_tip: #{$light_admonition_tip};
@@ -71,8 +79,10 @@ $light_admonition_important: {{ $colors.light.admonition.important | default "#b
         --default_fg:         #{$light_fg};
         --default_dim_fg:     #{$light_dim_fg};
         --default_stroke:     #{$light_stroke};
+        --default_stroke_nd:  #{$light_stroke_nd};
         --default_accent:     #{$light_accent};
         --default_accent_nd:  #{$light_accent_nd};
+        --default_accent_rd:  #{$light_accent_rd};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
         --default_admonition_tip: #{$light_admonition_tip};
@@ -87,8 +97,10 @@ $light_admonition_important: {{ $colors.light.admonition.important | default "#b
         --default_fg:         #{$dark_fg};
         --default_dim_fg:     #{$dark_dim_fg};
         --default_stroke:     #{$dark_stroke};
+        --default_stroke_nd:  #{$dark_stroke_nd};
         --default_accent:     #{$dark_accent};
         --default_accent_nd:  #{$dark_accent_nd};
+        --default_accent_rd:  #{$dark_accent_rd};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
         --default_admonition_tip: #{$dark_admonition_tip};
@@ -108,7 +120,9 @@ $light_admonition_important: {{ $colors.light.admonition.important | default "#b
         --default_fg:         #{$dark_fg};
         --default_dim_fg:     #{$dark_dim_fg};
         --default_stroke:     #{$dark_stroke};
+        --default_stroke_nd:  #{$dark_stroke_nd};
         --default_accent_nd:  #{$dark_accent_nd};
+        --default_accent_rd:  #{$dark_accent_rd};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
         --default_admonition_tip: #{$dark_admonition_tip};
@@ -126,8 +140,10 @@ $light_admonition_important: {{ $colors.light.admonition.important | default "#b
         --default_fg:         #{$light_fg};
         --default_dim_fg:     #{$light_dim_fg};
         --default_stroke:     #{$light_stroke};
+        --default_stroke_nd:  #{$light_stroke_nd};
         --default_accent:     #{$light_accent};
         --default_accent_nd:  #{$light_accent_nd};
+        --default_accent_rd:  #{$light_accent_rd};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
         --default_admonition_tip: #{$light_admonition_tip};
@@ -170,6 +186,7 @@ body, html {
     font-size: $base_font_size * $main_font_mult;
     margin: 0;
     padding: 0;
+    // background-color: var(--default_accent_rd);
     background-color: var(--default_bg);
     color: var(--default_fg);
 }
@@ -285,7 +302,7 @@ article, .articlePreview {
     }
     pre {
         padding: $margin;
-        border: 1px solid var(--default_stroke);
+        border: 0px solid var(--default_stroke);
         border-radius: 3px;
     }
 }
@@ -298,19 +315,54 @@ p {
         border-radius: 7px;
         padding: 5px;
         color: var(--default_fg);
-        background-color: var(--default_cb);
+        background-color: var(--default_bg);
         /* background-color: #ff7700; */
     }
 }
 
-.listingblock, .exampleblock, .sidebarblock, .paragraph {
+.listingblock, .exampleblock, .sidebarblock, .paragraph, .literalblock, .quoteblock {
     .title {
         font-family: $symbols_font, $title_font, serif;
+        text-align: left;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        /* padding-top: ($margin * 1.5); */
+        /* padding-bottom: ($margin * 1.5); */
         /* color: var(--default_dim_fg); */
         font-weight: bold;
         /* color: var(--default_accent_nd); */
     }
 }
+
+.sidebarblock {
+    border-top: 2.5px solid var(--default_dim_fg);
+    border-bottom: 2.5px solid var(--default_dim_fg);
+    /* background-color: var(--default_cb); */
+    /* .content { */
+    /*   .title { */
+    /*     font-size: $base_font_size * 1 * $mono_font_mult; */
+    /*     text-align: center; */
+    /*   } */
+    /* } */
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+//   border-radius: 4px;
+//   .content {
+//     .title {
+//       display: grid;
+//       padding-left: 20px;
+//       /* text-align: center; */
+//     }
+//     .paragraph {
+//       padding: 5px;
+//       padding-left: 20px;
+//     }
+//   }
+}
+
 
 *::selection {
     background: var(--default_accent_nd);
@@ -328,14 +380,19 @@ code, table {
 }
 
 .rouge {
-    border: 1px solid var(--default_dim_fg);
+    border: 0px solid var(--default_stroke_nd);
     background-color: 1px solid var(--default_cb);
 }
 
 .literalblock {
+  .title {
+    font-weight: bold;
+    // color: var(--default_stroke);
+  }
     .content {
         pre {
-            border: 1px solid var(--default_sidebar_bg);
+            border: 0px solid var(--default_stroke);
+            border-radius: 2px;
         }
     }
 }
@@ -373,7 +430,7 @@ table {
 blockquote {
     margin: 0;
     padding-left: ($margin * 2);
-    border-left: 6px solid var(--default_dim_fg);
+    border-left: 6px solid var(--default_stroke);
 }
 
 .quoteblock {
@@ -487,12 +544,12 @@ h6 {font-size: 0.7 * $base_font_size * $title_font_mult;}
     }
     span {
         position: absolute;
-        top: 1.5em;
+        top: 2.0em;
         left: 50%;
         transform: translateX(-50%);
-        padding: 2px;
-        border: 1px solid var(--default_stroke);
-        border-radius: 3px;
+        padding: 4px;
+        border: 1px solid var(--default_accent);
+        border-radius: 10px;
         color: var(--default_fg);
         display: none;
         background-color: var(--default_bg);
@@ -818,187 +875,47 @@ header {
 }
 
 .tableofcontents {
-
   border: 0px solid var(--default_stroke);
   border-radius: 5px;
   margin: #{$margin * 2} 0;
-  // padding-left: 25%;
-  // padding-right: 25%;
-  // width: 50%;
   width: 100%;
   height: 200px;
   display: flex;
-  // justify-content: center;
-
   tbody {
       display: block;
       height: 150px;
       overflow: auto;
       background-color: var(--default_bg);
   }
-
   thead, tbody tr {
       display: table;
       width: 100%;
       table-layout: fixed;/* even columns width , fix width of table too*/
   }
-
   thead {
     width: 100%;
     height: 20px;
-    background-color: var(--default_accent);
+    background-color: var(--default_accent_nd);
+    // background-color: var(--default_stroke);
     font-weight: bold;
     color: var(--default_bg);
   }
-
   table {
     width: 100%;
   }
-
   table, tr td {
     border: 0px solid var(--default_stroke);
   }
-
   .sidebar {
     thead {
       color: var(--default_hl_bg);
     }
     tbody {
       background-color: var(--default_hl_bg);
-      height: 300px;
+      height: 270px;
     }
   }
-
-  // table {
-  //   display: block;
-  //   // width: 50%;
-  //   // width:70%; 
-  //   // margin-left:25%; 
-  //   // margin-right:25%;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  //   // border-collapse: collapse;
-  //   // background-color: var(--default_cb);
-  //   td, tr {
-  //     width: 100%;
-  //     /* height: 250px; */
-  //     border: 00px solid;
-  //     background-color: var(--default_cb);
-  //   }
-  //   td {
-  //     border: 00px solid;
-  //   }
-  //   tr {
-  //     display: table;
-  //     table-layout: fixed;
-  //     // height: 200px;
-  //     border: 00px solid;
-  //     overflow: auto;
-  //   }
-  //   th, thead {
-  //     text-align: left;
-  //     border: 00px solid;
-  //     width: 100%;
-  //     // height: 200px;
-  //     // background-color: #04AA6D;
-  //     background-color: var(--default_accent);
-  //     color: var(--default_bg);
-  //   }
-  // }
-
 }
-
-
-// .tableofcontents {
-//   border: 1px solid var(--default_stroke);
-//   border-radius: 5px;
-//   margin: #{$margin * 2} 0;
-//   padding-left: 2%;
-//   padding-right: 2%;
-//   width: 96%;
-//   display: block;
-//   background-color: var(--default_cb);
-//   .head {
-//     display: block;
-//     // margin-left: 30px;
-//     padding-left: 2%;
-//     font-weight: bold;
-//     width: 98%;
-//     height: 30px;
-//     background-color: var(--default_accent);
-//     color: var(--default_bg);
-//   }
-//   .body {
-//     display: block;
-//     width: 100%;
-//     border-collapse: collapse;
-//     overflow: auto;
-//     height: 200px;
-//   }
-//   .sidebar {
-//     border: none;
-//   }
-// }
-
-/* example 6
-<div class="hdlist">
-<table>
-<tbody><tr>
-<td class="hdlist1">
-first term
-</td>
-<td class="hdlist2">
-<p>definition of first term</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-section term
-</td>
-<td class="hdlist2">
-<p>definition of second term</p>
-</td>
-</tr>
-</tbody></table>
-</div>
-*/
-
-/* .dlist { */
-/*   dl { */
-/*     dt { */
-/*       font-weight: bold; */
-/*     } */
-/*   } */
-/* } */
-/*     tbody { */
-/*       tr { */
-/*         td { */
-
-
-/*         } */
-/*       } */
-/*     } */
-/*   } */
-/* } */
-
-/* .dlist { */
-/*   dl { */
-/**/
-/*     dt { */
-/*       .hdlist1 { */
-/*       } */
-/*     } */
-/**/
-/*     dd { */
-/*       p { */
-/*         .hdlist1 { */
-/*         } */
-/*       } */
-/*     } */
-/**/
-/*   } */
-/* } */
-
 
 .articleTagsContainer {
     margin: $margin 0;
@@ -1570,8 +1487,9 @@ input {
 }
 
 .admonitionblock {
+  padding-bottom: 15px;
     table {
-        background-color: var(--default_bg);
+        background-color: var(--default_cb);
         tbody {
             tr {
                 td {
@@ -1611,22 +1529,23 @@ input {
 }
 
 .admonitionblock td.content {
-  border-left: 1px dashed var(--default_accent);
-  padding-left:  20px;
+    border-left: 1.6px dashed var(--default_dim_fg);
+    padding-left:  20px;
+}
+
+#Warning {
+    padding-left:  200px;
 }
 
 .admonitionblock td.icon {
-
     [class^="fa icon-"] { 
-        padding-right: 1px;
+        padding-right: 10px;
         padding-left: 10px;
         font-size: 200%;
         text-shadow: 1px 1px 2px rgba(0,0,0,.5);
         cursor: default;
     }
-
     .icon-note:before {
-        border-right: 10.5px dotted var(--default_bg);
         content:"\f05a";
         color: var(--default_admonition_note);
         font-weight: normal;
@@ -1638,27 +1557,80 @@ input {
         font-weight: normal;
         font-style: normal;
     }
-
     .icon-important:before {
         content:"\f06a";
         color: var(--default_admonition_important);
         font-weight: normal;
         font-style: normal;
     }
-
     .icon-tip:before {
         content:"\f0eb";
         color: var(--default_admonition_tip);
         font-weight: normal;
         font-style: normal;
+        padding-right: 5px;
+        padding-left: 5px;
     }
-
     .icon-warning:before {
         content:"\f071";
         color: var(--default_admonition_warning);
         font-weight: normal;
         font-style: normal;
     }
+}
 
+.ulist ul.checklist {
+  list-style-type: none;
+  .fa-check-square-o:before {
+    list-style-type: none;
+    content:"\f14a";
+    padding-right: 5px;
+    padding-left: 1px;
+    font-weight: normal;
+    font-style: normal;
+  }
+  .fa-square-o:before {
+    content:"\f0c8";
+    padding-right: 5px;
+    padding-left: 1px;
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+.tableblock {
+  border: 0px;
+  max-width: 100%;
+  th {
+    border-top: 2px solid var(--default_stroke);
+    border-bottom: 2px solid var(--default_stroke);
+  }
+  td, tr, th {
+    text-align: left;
+  }
+
+  // th {
+  //   background-color: var(--default_cb);
+  // }
+  // tr:nth-child(even) {
+  //   background-color: var(--default_cb);
+  // }
+  // tr:nth-child(odd) {
+  //   background-color: var(--default_bg);
+  // }
+
+  tr:last-child {
+    border-bottom: 2px solid var(--default_stroke);
+  }
+}
+
+h2, h3, h4, h5, h6 {
+  color: var(--default_accent_nd);
+}
+
+p {
+  a {
+    color: var(--default_accent_nd);
+  }
 }
 
