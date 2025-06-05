@@ -334,10 +334,11 @@ p {
     }
 }
 
+/* The annoying border is this one */
 .sidebarblock {
-    border-top: 2.5px solid var(--default_dim_fg);
-    border-bottom: 2.5px solid var(--default_dim_fg);
-    /* background-color: var(--default_cb); */
+    border-top: 0.0px solid var(--default_dim_fg);
+    border-bottom: 0.0px solid var(--default_dim_fg);
+    background-color: var(--default_bg);
     /* .content { */
     /*   .title { */
     /*     font-size: $base_font_size * 1 * $mono_font_mult; */
@@ -1609,15 +1610,15 @@ input {
     text-align: left;
   }
 
-  // th {
-  //   background-color: var(--default_cb);
-  // }
-  // tr:nth-child(even) {
-  //   background-color: var(--default_cb);
-  // }
-  // tr:nth-child(odd) {
-  //   background-color: var(--default_bg);
-  // }
+  th {
+    background-color: var(--default_cb);
+  }
+  tr:nth-child(even) {
+    background-color: var(--default_hl_bg);
+  }
+  tr:nth-child(odd) {
+    background-color: var(--default_bg);
+  }
 
   tr:last-child {
     border-bottom: 2px solid var(--default_stroke);
