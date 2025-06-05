@@ -1202,12 +1202,21 @@ header.jumbotronContainer {
         .Site.Data.jumbotron.background
         (not .Site.Data.jumbotron.backgroundVideo)
     }}
+      {{ if eq .Site.Data.colors.default "light" }}
         background:
             linear-gradient(
-                transparentize($dark_bg, 0.2),
-                transparentize($dark_bg, 0.2)
+                transparentize($light_bg, 0.3),
+                transparentize($light_bg, 0.3)
             ),
             url({{ .Site.Data.jumbotron.background }});
+      {{ else }}
+        background:
+            linear-gradient(
+                transparentize($dark_bg, 0.5),
+                transparentize($dark_bg, 0.5)
+            ),
+            url({{ .Site.Data.jumbotron.background }});
+      {{ end }}
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
