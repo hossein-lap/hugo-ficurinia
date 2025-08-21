@@ -876,46 +876,71 @@ header {
 }
 
 .tableofcontents {
-  border: 0px solid var(--default_stroke);
-  border-radius: 5px;
-  margin: #{$margin * 2} 0;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  tbody {
-      display: block;
-      height: 150px;
-      overflow: auto;
-      background-color: var(--default_bg);
-  }
-  thead, tbody tr {
-      display: table;
-      width: 100%;
-      table-layout: fixed;/* even columns width , fix width of table too*/
-  }
-  thead {
-    width: 100%;
-    height: 20px;
+  .head {
+    padding-left:  5px;
+    padding-right: 5px;
+    padding-top:    3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
     background-color: var(--default_accent_nd);
-    // background-color: var(--default_stroke);
-    font-weight: bold;
     color: var(--default_bg);
+    display: table;
   }
-  table {
+  .head::selection {
+    color: var(--default_accent_nd);
+    background-color: var(--default_bg);
+  }
+  .body {
     width: 100%;
+    height: 300px;
+    /* border: 1px solid var(--default_accent_nd); */
+    overflow: auto;
   }
-  table, tr td {
-    border: 0px solid var(--default_stroke);
-  }
+
   .sidebar {
-    thead {
-      color: var(--default_hl_bg);
-    }
+    border: 0px solid var(--default_stroke);
+    border-radius: 5px;
+    border-radius: 5px;
+    margin: #{$margin * 2} 0;
+    width: 100%;
+    height: 300px;
+    display: flex;
     tbody {
-      background-color: var(--default_hl_bg);
-      height: 270px;
+        display: block;
+        height: 250px;
+        overflow: auto;
+        background-color: var(--default_bg);
+    }
+    thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;// even columns width , fix width of table too
+    }
+    thead {
+      width: 100%;
+      height: 20px;
+      background-color: var(--default_accent_nd);
+      // background-color: var(--default_stroke);
+      font-weight: bold;
+      color: var(--default_bg);
+    }
+    table {
+      width: 100%;
+    }
+    table, tr td {
+      border: 0px solid var(--default_stroke);
+    }
+    .sidebar {
+      thead {
+        color: var(--default_hl_bg);
+      }
+      tbody {
+        background-color: var(--default_hl_bg);
+        height: 270px;
+      }
     }
   }
+
 }
 
 .articleTagsContainer {
@@ -1090,6 +1115,13 @@ input, textarea, textarea.cactus-editor-textarea {
     }
 
     @media only screen and (max-width: 520px) {
+      .tableofcontents {
+        .body {
+          width: 100%;
+          height: 200px;
+          overflow: auto;
+        }
+      }
         header {
             .titleAndSearchContainer {
                 z-index: 9999999 !important;

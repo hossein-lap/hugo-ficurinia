@@ -4,21 +4,30 @@
   <aside>
   <div class="tableofcontents">
 
-      <table>
-          <thead>
-              <tr>
-                  <td>Table Of Contents</td>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>
-                      {{ .TableOfContents }}
-                  </td>
-              </tr>
-          </tbody>
-      </table>
+      <!-- <table> -->
+      <!--     <thead> -->
+      <!--         <tr> -->
+      <!--             <td>Table Of Contents</td> -->
+      <!--         </tr> -->
+      <!--     </thead> -->
+      <!--     <tbody> -->
+      <!--         <tr> -->
+      <!--             <td> -->
+      <!--                 {{ .TableOfContents }} -->
+      <!--             </td> -->
+      <!--         </tr> -->
+      <!--     </tbody> -->
+      <!-- </table> -->
 
+      <p>
+      <div class="head">
+      Table Of Contents
+      </div>
+
+      <div class="body">
+      {{ .TableOfContents }}
+      </div>
+      </p>
 
   </div>
   </aside>
